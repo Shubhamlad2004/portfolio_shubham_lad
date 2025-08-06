@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/navbar.dart';
 
 class ResumePage extends StatelessWidget {
   const ResumePage({super.key});
@@ -14,6 +15,7 @@ class ResumePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const NavBar(),
               Text(
                 'Resume',
                 style: theme.textTheme.displaySmall?.copyWith(

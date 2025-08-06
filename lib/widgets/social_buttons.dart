@@ -29,7 +29,7 @@ class SocialButtons extends StatelessWidget {
         IconButton(
           icon: const Icon(Icons.email),
           onPressed: () {
-            _launchURL('shubhamlad2004@gmail.com');
+            _launchURL('mailto:shubhamlad2004@gmail.com');
           },
         ),
         IconButton(

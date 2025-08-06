@@ -3,7 +3,6 @@ import 'package:portfolio_shubham_lad/widgets/skills_section.dart';
 import '../widgets/navbar.dart';
 import '../widgets/hero_section.dart';
 import '../widgets/footer.dart';
-import '../widgets/about_section.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -35,8 +34,6 @@ class _HomePageState extends State<HomePage> {
                     const NavBar(),
                     const HeroSection(),
                     const SkillsSection(skills: ['Flutter', 'Dart', 'Python', 'Firebase', 'Git', 'Linux'],),
-                    const AboutSection(),
-
                     // You can add ProjectsSection, ContactSection here later
 
                     const Spacer(), // Pushes Footer to bottom if content is short
