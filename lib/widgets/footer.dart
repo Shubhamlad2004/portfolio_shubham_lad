@@ -17,10 +17,10 @@ class CustomFooter extends StatelessWidget {
             children: [
               // Text stays left
               Text(
-                '© 2025 Shubham Lad. All Rights Reserved.',
+                '© 2025 Shubham Lad.',
                 style: Theme.of(context).textTheme.bodySmall,
               ),
-              // Buttons stay right, Wrap inside SocialButtons will handle overflow
+              
               const SocialButtons(),
             ],
           ),

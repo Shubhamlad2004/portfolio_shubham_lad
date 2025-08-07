@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../widgets/navbar.dart';
+import '../widgets/footer.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -6,19 +8,24 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = theme.brightness == Brightness.dark;
 
     return Scaffold(
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(60),
+        child: NavBar(),
+      ),
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // Profile picture
               CircleAvatar(
                 radius: 60,
-                backgroundImage: AssetImage('assets/images/profile.jpg'), // Replace with your image
+                backgroundImage: AssetImage('assets/images/profile.jpg'),
               ),
               const SizedBox(height: 20),
 
@@ -42,7 +49,7 @@ class ProfilePage extends StatelessWidget {
                 style: theme.textTheme.bodyMedium,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 32),
 
               // Goals
               Align(
@@ -65,10 +72,12 @@ class ProfilePage extends StatelessWidget {
                   _GoalItem(text: '🤝 Collaborate with developers and researchers worldwide.'),
                 ],
               ),
+              const SizedBox(height: 40),
             ],
           ),
         ),
       ),
+      bottomNavigationBar: const CustomFooter(),
     );
   }
 }

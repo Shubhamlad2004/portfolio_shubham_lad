@@ -27,7 +27,7 @@ class HeroSection extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 30),
 
                     // Subtitle / Description
                     Text(

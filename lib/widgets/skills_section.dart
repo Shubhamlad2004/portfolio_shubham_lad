@@ -20,8 +20,8 @@ class SkillsSection extends StatelessWidget {
                   ),
             const SizedBox(height: 20),
             Wrap(
-              spacing: 12,
-              runSpacing: 12,
+              spacing: 22,
+              runSpacing: 22,
               children: skills
                   .map(
                     (skill) => Chip(
