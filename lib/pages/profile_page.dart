@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widgets/navbar.dart';
-import '../widgets/footer.dart';
+import 'package:portfolio_shubham_lad/widgets/github_projects_section.dart';
+import 'package:portfolio_shubham_lad/widgets/skills_section.dart';
+import 'package:portfolio_shubham_lad/widgets/education_section.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -8,93 +9,87 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
 
-    return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(60),
-        child: NavBar(),
-      ),
-      body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // Profile picture
-              CircleAvatar(
-                radius: 60,
-                backgroundImage: AssetImage('assets/images/profile.jpg'),
-              ),
-              const SizedBox(height: 20),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // About Me
+          const AboutMeSection(),
+          const SizedBox(height: 32),
 
-              // Name & title
-              Text(
-                'Shubham Lad',
-                style: theme.textTheme.displaySmall?.copyWith(fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Student | App Developer | Engineer',
-                style: theme.textTheme.titleMedium?.copyWith(
-                  color: theme.colorScheme.primary,
-                ),
-              ),
-              const SizedBox(height: 24),
+          // Education
+          const EducationSection(),
+          const SizedBox(height: 32),
 
-              // Short Bio
-              Text(
-                'I am a Computer Science student at MIT-ADT University with a passion for Flutter development, cloud computing, and solving real-world problems through tech.',
-                style: theme.textTheme.bodyMedium,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 32),
+          // Projects
+          const ProjectsSection(),
+          const SizedBox(height: 32),
 
-              // Goals
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'My Goals:',
-                  style: theme.textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: theme.colorScheme.primary,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 12),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  _GoalItem(text: '🔭 Build innovative, scalable apps.'),
-                  _GoalItem(text: '🧠 Constantly learn and grow as a software engineer.'),
-                  _GoalItem(text: '🌍 Solve SDG-aligned challenges with technology.'),
-                  _GoalItem(text: '🤝 Collaborate with developers and researchers worldwide.'),
-                ],
-              ),
-              const SizedBox(height: 40),
-            ],
+          // Skills
+          Text(
+            "Skills",
+            style: theme.textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
           ),
-        ),
+          const SizedBox(height: 16),
+          const SkillsSection(
+            skills: ['Flutter', 'Dart', 'Python', 'Firebase', 'Git', 'Linux'],
+          ),
+        ],
       ),
-      bottomNavigationBar: const CustomFooter(),
     );
   }
 }
 
-class _GoalItem extends StatelessWidget {
-  final String text;
-  const _GoalItem({required this.text});
+class AboutMeSection extends StatelessWidget {
+  const AboutMeSection({super.key});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
-      child: Text(
-        text,
-        style: theme.textTheme.bodyMedium?.copyWith(height: 1.4),
-      ),
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const CircleAvatar(
+          radius: 60,
+          backgroundImage: AssetImage('lib/assets/images/hero_image.jpeg'),
+        ),
+        const SizedBox(width: 24),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Profile',
+                style: theme.textTheme.titleLarge?.copyWith(
+                  color: theme.colorScheme.primary,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'I am a Computer Science student at MIT-ADT University with a passion for Flutter development, cloud computing, and solving real-world problems through tech.',
+                style: theme.textTheme.bodyMedium,
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class ProjectsSection extends StatelessWidget {
+  const ProjectsSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Wrap(
+      spacing: 16,
+      runSpacing: 16,
+      children: [
+        GitHubProjectsSection(),
+      ],
     );
   }
 }

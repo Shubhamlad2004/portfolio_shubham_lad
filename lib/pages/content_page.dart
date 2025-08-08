@@ -5,15 +5,15 @@ class ContentPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Content"),
-      ),
-      body: const Center(
+    final theme = Theme.of(context);
+
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
         child: Text(
           "This is the Content Page.\nYou can add blogs, articles, or achievements here.",
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 18),
+          style: theme.textTheme.titleMedium?.copyWith(fontSize: 18),
         ),
       ),
     );

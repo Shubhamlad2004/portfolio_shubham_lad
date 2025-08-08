@@ -2,33 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SocialMenuItems {
-  static List<PopupMenuItem<int>> getMenuItems() {
-    return [
+  static List<PopupMenuEntry<int>> getMenuItems() {
+    return const [
       PopupMenuItem<int>(
         value: 0,
-        child: const Text("LinkedIn"),
-        onTap: () => _launchURL('https://www.linkedin.com/in/shubhaml2004'),
+        child: Text("LinkedIn"),
       ),
       PopupMenuItem<int>(
         value: 1,
-        child: const Text("Email"),
-        onTap: () => _launchURL('mailto:shubhamlad2004@gmail.com'),
+        child: Text("Email"),
       ),
       PopupMenuItem<int>(
         value: 2,
-        child: const Text("GitHub"),
-        onTap: () => _launchURL('https://github.com/Shubhamlad2004'),
+        child: Text("GitHub"),
       ),
     ];
   }
 
-  static Future<void> _launchURL(String url) async {
-    await Future.delayed(Duration(milliseconds: 100)); // Prevent onTap crash
+  static Future<void> launchFromValue(int value) async {
+    String url;
+
+    switch (value) {
+      case 0:
+        url = 'https://www.linkedin.com/in/shubhaml2004';
+        break;
+      case 1:
+        url = 'mailto:shubhamlad2004@gmail.com';
+        break;
+      case 2:
+        url = 'https://github.com/Shubhamlad2004';
+        break;
+      default:
+        return;
+    }
+
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     } else {
-      throw 'Could not launch $url';
+      debugPrint('Could not launch $url');
     }
   }
 }

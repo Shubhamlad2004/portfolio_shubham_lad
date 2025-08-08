@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../theme/app_theme.dart';
-import '../components/responsive_wrapper.dart';
+import 'responsive_wrapper.dart';
 
 class AboutSection extends StatelessWidget {
   const AboutSection({super.key});
@@ -8,7 +7,6 @@ class AboutSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     final textColor = Theme.of(context).colorScheme.onBackground;
 
     return Container(
