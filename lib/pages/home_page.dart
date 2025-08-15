@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/hero_section.dart';
-import '../widgets/skills_section.dart';
+import 'package:portfolio_shubham_lad/widgets/hero_section.dart';
+import 'package:portfolio_shubham_lad/widgets/skills_section.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

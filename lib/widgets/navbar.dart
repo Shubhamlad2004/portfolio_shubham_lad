@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import './social_menu_items.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
@@ -44,7 +43,6 @@ class NavBar extends StatelessWidget {
                 _NavItem("Projects", '/projects', currentRoute),
                 _NavItem("Resume", '/resume', currentRoute),
                 _NavItem("Content", '/content', currentRoute),
-                const _ContactDropdown(),
               ] else ...[
                 Builder(
                   builder: (context) => IconButton(
@@ -87,29 +85,6 @@ class _NavItem extends StatelessWidget {
               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
               decoration: isSelected ? TextDecoration.underline : null,
             ),
-      ),
-    );
-  }
-}
-
-class _ContactDropdown extends StatelessWidget {
-  const _ContactDropdown();
-
-  @override
-  Widget build(BuildContext context) {
-    return PopupMenuButton<int>(
-      tooltip: "Contact Me",
-      offset: const Offset(0, 30),
-      itemBuilder: (context) => SocialMenuItems.getMenuItems(),
-      onSelected: (value) => SocialMenuItems.launchFromValue(value),
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 12),
-        child: Row(
-          children: [
-            Text("Contact Me"),
-            Icon(Icons.arrow_drop_down),
-          ],
-        ),
       ),
     );
   }

@@ -8,5 +8,5 @@ class DarkThemeColors {
   static const Color textPrimary = Color(0xFFFFFFFF);
   static const Color textSecondary = Color(0xFFBBBBBB);
   static const Color button = Color(0xFF333344);
-  static const Color Divider = Colors.white24;
+  static const Color divider = Colors.white24;
 }

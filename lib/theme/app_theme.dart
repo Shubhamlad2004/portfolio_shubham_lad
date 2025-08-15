@@ -33,7 +33,7 @@ class AppTheme {
       onSurface: LightThemeColors.textPrimary,
     ),
     dividerTheme: const DividerThemeData(
-      color: LightThemeColors.Divider,
+      color: LightThemeColors.divider,
       thickness: 1,
       space: 0,
     ),
@@ -67,7 +67,7 @@ class AppTheme {
       onSurface: DarkThemeColors.textPrimary,
     ),
     dividerTheme: const DividerThemeData(
-      color: DarkThemeColors.Divider,
+      color: DarkThemeColors.divider,
       thickness: 1,
       space: 0,
     ),

@@ -8,5 +8,5 @@ class LightThemeColors {
   static const Color textPrimary = Color(0xFF1A1A1A);
   static const Color textSecondary = Color(0xFF555555);
   static const Color button = Color(0xFFE6E6F0);
-  static const Color Divider = Colors.black26;
+  static const Color divider = Colors.black26;
 }

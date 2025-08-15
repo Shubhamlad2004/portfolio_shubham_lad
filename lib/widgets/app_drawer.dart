@@ -9,9 +9,9 @@ class AppDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const DrawerHeader(
-            decoration: BoxDecoration(color: Colors.blue),
-            child: Text('Navigation', style: TextStyle(color: Colors.white, fontSize: 20)),
+          DrawerHeader(
+            decoration: BoxDecoration(color: Theme.of(context).dividerTheme.color),
+            child: Text('Navigation', style: Theme.of(context).textTheme.titleLarge,),
           ),
           _buildDrawerItem(context, 'Home', '/'),
           _buildDrawerItem(context, 'Profile', '/profile'),
