@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_shubham_lad/widgets/github_projects_section.dart';
-import 'package:portfolio_shubham_lad/widgets/skills_section.dart';
 import 'package:portfolio_shubham_lad/widgets/education_section.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -8,7 +7,6 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
 
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
@@ -26,16 +24,6 @@ class ProfilePage extends StatelessWidget {
           // Projects
           const ProjectsSection(),
           const SizedBox(height: 32),
-
-          // Skills
-          Text(
-            "Skills",
-            style: theme.textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 16),
-          const SkillsSection(
-            skills: ['Flutter', 'Dart', 'Python', 'Firebase', 'Git', 'Linux'],
-          ),
         ],
       ),
     );

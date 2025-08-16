@@ -11,20 +11,22 @@ class SharedLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: const AppDrawer(), // vertical drawer menu bar in case of mobile interface 
+      endDrawer: const AppDrawer(),
       body: LayoutBuilder(
         builder: (context, constraints) {
-          return SingleChildScrollView( // make page scrolable 
+          return SingleChildScrollView(
             child: ConstrainedBox(
-              constraints: BoxConstraints(minHeight: constraints.maxHeight), // use space horisontaly(helps footer stick to botum)
-              child: IntrinsicHeight( // (heavy resource remove if app too slow.) makes colums of same size (as the allest one)
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: IntrinsicHeight(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const NavBar(), // Menu Bar on top
-                    ResponsiveWrapper(child: child), // main content
-                    const Spacer(), // fill remaining space
-                    const CustomFooter(), // shared footer
+                    const NavBar(),
+                    Expanded(
+                      child: ResponsiveWrapper(child: child),
+                    ),
+
+                    const CustomFooter(),
                   ],
                 ),
               ),

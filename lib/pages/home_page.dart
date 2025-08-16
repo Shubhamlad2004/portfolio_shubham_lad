@@ -7,15 +7,17 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
-        HeroSection(),
-        SizedBox(height: 32),
-        SkillsSection(
-          skills: ['Flutter', 'Dart', 'Python', 'Firebase', 'Git', 'Linux'],
-        ),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          HeroSection(),
+          SizedBox(height: 32),
+          SkillsSection(
+            skills: ['Flutter', 'Dart', 'Python', 'Firebase', 'Git', 'Linux'],
+          ),
+        ],
+      ),
     );
   }
 }
